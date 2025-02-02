@@ -90,3 +90,7 @@ Les intérêts sont actuellements calculés dans le code COBOL mais ne sont pas 
 ### Nouveau calcul des intérêts
 
 Les intérêts sont calculés de manière très simplifiée, il est envisagé de réalisé un calcul plus réaliste des intérêts.
+
+### Permettre la modification de variables
+
+Les variables telles que le taux d'intérêt ou le nom du fichier ne sont modifiable quand le script `LIVRET01.cbl` et celui-ci doit être de nouveau compilé pour pouvoir être exécuté. L'idée serait d'avoir un fichier externe (comme `FICHIER.LIVRET`) qui permette d'indiquer la valeur des variables. Ces valeurs pourraient ainsi être modifiable via la page web dans les options.
