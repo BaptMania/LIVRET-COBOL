@@ -61,6 +61,8 @@ Choisissez l'option qui convient le mieux à votre environnement de développeme
 
 Si vous souhaitez uniquement utiliser le fichier `.exe` et ne pas installer d'environnement adapté au développement COBOL, vous pouvez le faire sans problème, les scripts PHPs sont adaptés. Le script `LIVRET01.cbl` est disponible pour que vous puissiez le modifier selon vos besoins.
 
+## Customisation
+
 L'exécutable `LIVRET01.exe` doit être présent dans le dossier `/Resources/Scripts/` comme dans dépôt GitHub.
 
 Pour modifier l'emplacement de l'exécutable, il faut modifier la variable `$SCRIPT_POSITION` dans le fichier `transactions.php` à votre convenance.
