@@ -19,8 +19,7 @@ La page est créée à l'aide d'un mélange de PHP et de JAVAScript. Lorsqu'une 
 La page web est réalisée en PHP et JAVAScript.
 Le script de calcul du solde est réalisé en COBOL.
 
-> Le logiciel MAMP a été utilisé pour le serveur.
-
+> Le logiciel MAMP a été utilisé pour le serveur.\
 > Le programme a été réalisé sous Windows sans mainframe ou WSL. J'ai donc utilisé GNUCobol.
 
 ## Installation
