@@ -71,7 +71,7 @@ Pour modifier le nom du fichier, il vous faut modifier la variable `FICHIER-TRAN
 
 L'intérêt de fin d'année est ici fixée à 3% (0,03). Il est possible de le modifier en changeant la valeur `WS-TAUX-INTERETS` à la ligne 000035.
 
-La logique du calcul est ici extrêmement simplifiée, ne se composant que d'une simple augmentation du solde de 3%. Cette logique est actuellement modifiable dans le PARAGRAPHE `AFFICHER-RESULTATS` de la ligne 000092. Ke calcul est pour le moment réalisé aux lignes 000094 et 000095 dans la PHRASE suivante :
+La logique du calcul est ici extrêmement simplifiée, ne se composant que d'une simple augmentation du solde de 3%. Cette logique est actuellement modifiable dans le PARAGRAPHE `AFFICHER-RESULTATS` de la ligne 000092. Le calcul est pour le moment réalisé aux lignes 000094 et 000095 dans la PHRASE suivante :
 ```
 000094     COMPUTE WS-INTERETS-ANNUELS = WS-SOLDE * WS-TAUX-INTERETS
 000095     ADD WS-INTERETS-ANNUELS TO WS-SOLDE.
