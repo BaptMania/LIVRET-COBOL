@@ -96,3 +96,42 @@ Les intérêts sont calculés de manière très simplifiée, il est envisagé de
 ### Permettre la modification de variables
 
 Les variables telles que le taux d'intérêt ou le nom du fichier ne sont modifiable quand le script `LIVRET01.cbl` et celui-ci doit être de nouveau compilé pour pouvoir être exécuté. L'idée serait d'avoir un fichier externe (comme `FICHIER.LIVRET`) qui permette d'indiquer la valeur des variables. Ces valeurs pourraient ainsi être modifiable via la page web dans les options.
+
+## Auteur
+
+Ce projet a été réalisé par Baptiste BOUGY.
+
+## Changelog
+
+**Version 0.3.2**
+
+- Ajout de variables globales dans le fichier PHP pour permettre la customisation plus aisée sur les noms des fichiers.
+
+**Version 0.3.1**
+
+- L'exécution du script COBOL via PHP génère désormais un fichier `resultats.txt` contenant la sortie du script COBOL.
+
+**Version 0.3**
+
+- Exécution du script COBOL via PHP lors de l'ajout d'une transaction ;
+- Remplissage du fichier de transactions `FICHIER.LIVRET` lors de l'ajout d'une transaction via PHP.
+
+**Version 0.2**
+
+- Création de la base de la page web.
+
+**Version 0.1**
+
+- Création de la base du script COBOL associé à son fichier de transactions :
+    - Il calcul le solde d'un compte bancaire puis les intérêts (de manière simplifiée) ;
+    - Les données sont stockées dans un fichier externe sous un format précis : 
+        - Le premier caractère défini le type de transaction ;
+        - Les 6 caractères suivants définissent le montant entier de la transaction ;
+        - Les 2 derniers caractères définissent les décimales de la transaction.
+        - En exemple :
+            - `D00010000` pour un dépôt de 100,00€ sur le compte ;
+            - `R00010000` pour un retrait de 100,00€ sur le compte.
+
+_Problèmes rencontrés :_ 
+
+- `e-0.1.1` Seule la première transaction est prise en compte.
