@@ -106,6 +106,7 @@ Ce projet a été réalisé par Baptiste BOUGY.
 **Version 0.3.2**
 
 - Ajout de variables globales dans le fichier PHP pour permettre la customisation plus aisée sur les noms des fichiers.
+- Correction du problème `e-0.1.1`.
 
 **Version 0.3.1**
 
