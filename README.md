@@ -63,39 +63,36 @@ Si vous souhaitez uniquement utiliser le fichier `.exe` et ne pas installer d'en
 
 ## Customisation
 
-L'exécutable `LIVRET01.exe` doit être présent dans le dossier `/Resources/Scripts/` comme dans dépôt GitHub.
+L'exécutable `LIVRET01.exe` doit être présent dans le même dossier que le fichier `transactions.php` comme dans dépôt GitHub.
+
+> Le script d'exécution et des données est pour l'instant dans le même dossier que le fichier PHP car mon environnement MAMP ne me permets pas de le déplacer ailleurs pour le moment.
 
 Pour modifier l'emplacement de l'exécutable, il faut modifier la variable `$SCRIPT_POSITION` dans le fichier `transactions.php` à votre convenance.
 
 Le fichier `FICHIER.LIVRET` contient toutes les transactions du compte et est nécessaire au bon fonctionnement du programme `LIVRET01.exe`. Celui-ci est placé dans le même dossier que l'exécutable `LIVRET01.exe`.
 
-Pour modifier le nom du fichier, il vous faut modifier la variable `FICHIER-TRANSACTIONS` dans le script COBOL, accessible à la ligne 000010.
+Pour modifier le nom du fichier de transactions, il vous faut modifier la variable `FICHIER-TRANSACTIONS` dans le script COBOL, accessible à la ligne 000016. Pareil pour le nom du fichier de configuration, contenu dans la variable `FICHIER-TRANSACTIONS` à la ligne 000011.
 
-L'intérêt de fin d'année est ici fixée à 3% (0,03). Il est possible de le modifier en changeant la valeur `WS-TAUX-INTERETS` à la ligne 000035.
+L'intérêt de fin d'année est ici fixée à 3% (0,03). Il est possible de le modifier en changeant la valeur données dans le fichier `FICHIER-CONFIG`.
 
-La logique du calcul est ici extrêmement simplifiée, ne se composant que d'une simple augmentation du solde de 3%. Cette logique est actuellement modifiable dans le PARAGRAPHE `AFFICHER-RESULTATS` de la ligne 000092. Le calcul est pour le moment réalisé aux lignes 000094 et 000095 dans la PHRASE suivante :
+La logique du calcul est ici extrêmement simplifiée, ne se composant que d'une simple augmentation du solde de 3%. Cette logique est actuellement modifiable dans le PARAGRAPHE `AFFICHER-RESULTATS` de la ligne 000127. Le calcul est pour le moment réalisé à la ligne 000129 dans la PHRASE suivante :
 ```
-000094     COMPUTE WS-INTERETS-ANNUELS = WS-SOLDE * WS-TAUX-INTERETS
-000095     ADD WS-INTERETS-ANNUELS TO WS-SOLDE.
+000129     COMPUTE WS-INTERETS-ANNUELS = WS-SOLDE * WS-TAUX-INTERETS.
 ```
 
 ## Les ajouts envisagés
-
-### Affichage du solde grâce au code COBOL
-
-Le code COBOL réalise actuellement le calcul du solde avec les intérêts inclus, mais le code PHP le réalise également. L'idée est de retirer la logique PHP pour augmenter l'impact de la logique COBOL.
-
-### Affichage des intérêts
-
-Les intérêts sont actuellements calculés dans le code COBOL mais ne sont pas affichés sur la page web.
 
 ### Nouveau calcul des intérêts
 
 Les intérêts sont calculés de manière très simplifiée, il est envisagé de réalisé un calcul plus réaliste des intérêts.
 
-### Permettre l'attribution d'un taux d'intérêt
+### Permettre le stockage de plus d'informations
 
-Le taux d'intérêts est récupéré depuis un fichier externe `FICHIER.CONFIG`. Si une erreur venait à survenir lors de ladite récupération, il faudrait pouvoir attribuer un taux prédéfini pour permettre l'exécution de se poursuivre.
+Actuellement, seuls le type de transaction ainsi que son montant sont enregistrés. L'idée serait de pouvoir enregistrer d'autres données aux transactions (telles que les dates par exemple) pour pouvoir avoir plus de détails sur les transactions.
+
+### Permettre la modification de certaines informations depuis la page web
+
+Pour modifier certaines données (telles que le pourcentage d'intérêts ou la position du script par exemple), il faut entrer manuellement les données dans les fichiers correspondants. Il serait plus aisé de pouvoir les modifier depuis l'interface web.
 
 ## Auteur
 
@@ -103,9 +100,31 @@ Ce projet a été réalisé par Baptiste BOUGY.
 
 ## Changelog
 
+**Version 0.4**
+
+- Intégration de l'affichage du solde via les données de sortie du script COBOL (_**Ajouts envisagés - Affichage du solde grâce au code COBOL**_ répondu) ;
+- Intégration de l'affichage des données suivantes récupérées via l'exécution du script COBOL :
+    - Les intérêts prévus (de manière simplifée) (_**Ajouts envisagés - Affichage des intérêts**_ répondu) ;
+    - Le montant total des dépôts ;
+    - Le montant total des retraits.
+- Création d'un fichier `FICHIER.CONFIG` permettant de renseigner la valeur des intérêts (compris en 0 et 1) (_**Ajouts envisagés - Permettre l'attribution d'un taux d'intérêt**_ répondu) ;
+- Correction du problème `e-0.3.4.1`.
+
+**Version 0.3.4**
+
+- Correction du problème `e-0.3.3.1`.
+
+_Problèmes rencontrés :_ 
+
+- `e-0.3.4.1` Le script COBOL ne s'exécute pas avec l'environnement MAMP.
+
 **Version 0.3.3**
 
 - Ajout d'un fichier de configuration pour configurer le taux d'intérêts pour le script COBOL. (_**Ajouts envisagés - Permettre la modification de variables**_ répondu).
+
+_Problèmes rencontrés :_ 
+
+- `e-0.3.3.1` Le script COBOL n'arrive pas à lire correctement les données sous l'environnement MAMP.
 
 **Version 0.3.2**
 
