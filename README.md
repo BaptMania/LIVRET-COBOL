@@ -107,7 +107,7 @@ Ce projet a été réalisé par Baptiste BOUGY.
     - Les intérêts prévus (de manière simplifée) (_**Ajouts envisagés - Affichage des intérêts**_ répondu) ;
     - Le montant total des dépôts ;
     - Le montant total des retraits.
-- Création d'un fichier `FICHIER.CONFIG` permettant de renseigner la valeur des intérêts (compris en 0 et 1) (_**Ajouts envisagés - Permettre l'attribution d'un taux d'intérêt**_ répondu) ;
+- Création d'un fichier `FICHIER.CONFIG` permettant de renseigner la valeur des intérêts (compris entre 0 et 1) (_**Ajouts envisagés - Permettre l'attribution d'un taux d'intérêt**_ répondu) ;
 - Correction du problème `e-0.3.4.1`.
 
 **Version 0.3.4**
